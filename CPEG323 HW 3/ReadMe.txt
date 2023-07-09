@@ -1,0 +1,1 @@
+For some reason when you run the program it works but you can't just run it again in spin because it won't work correctly. You need to quit spin and then go back into spin and load the file then run it. You need to do this after everytime you input a value to be translated.

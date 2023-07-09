@@ -1,0 +1,28 @@
+Functions:
+MC2A:
+Takes an input and loads the buffer into a variable (a0). Then we make space for the string and save the string input to register t0. We then load the address, initialize the index and initialize the boundary of the string. Finally it prints the string code and prints the value.
+
+LoopMC2A:
+First we load our value from register t2 to be compared. Then we use the first 16 bits to get the morse code binary. Then compare the values, move to next symbol and next index and evaluate. If there is no MC2A we jump to ErrorMC2A, if there is we keep looping.
+
+BinaryLoop:
+First we add an offset to the address of the inputed string and load the offset into reg a0. Then we check if NULL is found (no data) and this tells us that the code is done. If not then we look for either a dash or a dot (01 being a dash and 10 being a dot). We then add the dots and strings to register t9 which holds the string binary. 
+
+Dash:
+First for this function shift the binary string 2 bits to the left, making space. If we find a dash we add 01 to the end of the binary string which will allow the computer to turn this binary into our desired value (morse code). Then we jump back to our binaryLoop function.
+
+Dot;
+Again we first shift the binary string left 2 bits (multiplying by 4). If a dot is found we add 01 to the end of the binary string. Again, he binary string is what allows the computer to translate into our ASCII value or morse code. Finally we jump back to our binaryLoop function. 
+
+AddtoEnd:
+First we shift left again by 2 bits (multiply by 4). Then we add 01 to the end of the binary string which lets the computer know that the code is finished. Then we move to the next index and we jump to the Sl function. 
+
+SL:
+This function shifts the binary that has the morse code to the front of the string that allows us to store the data. Then we must calculate how many bits to shift by in order to be in the front of our 32 bit string. The formula we use is 18-(index*2).
+
+printLetter: 
+First we print the string code and print the ASCII. The last 2 bytes holds the the ASCII value which will be printed to terminal if there is and ASCII value, if not we get an error message and the program ends (j EXIT). 
+
+
+
+
